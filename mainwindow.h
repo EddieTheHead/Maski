@@ -38,8 +38,6 @@ private slots:
     void makePlans();
     //wyświtla wynikowy obraz
     void showResult();
-    //wywołuje rgbToBW
-    void on_pushButton_deleteColors_clicked();
     //ładuje wartości z formularz w oknie programu do macierzy maski
     void loadMaskFromForm();
     //ładuje macierz zdjęcia źródłowego
@@ -58,6 +56,8 @@ private slots:
     void makePredefinedMasks();
     //załaduj maskę z listy
     void loadMaskFromCombobox(int index);
+    //ustawia "Własne", w comboboxie z maskami po edycji któregokolwiek z lineEditów Maski
+    void maskEditsChanged();
 
 private:
     Ui::MainWindow *ui;

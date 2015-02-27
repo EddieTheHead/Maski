@@ -54,13 +54,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_deleteColors">
-        <property name="text">
-         <string>Usuń kolory</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="pushButton_doFFT">
         <property name="text">
          <string>Wykonaj Splot</string>
@@ -203,7 +196,6 @@
   <tabstop>lineEdit_c1</tabstop>
   <tabstop>lineEdit_c2</tabstop>
   <tabstop>lineEdit_c3</tabstop>
-  <tabstop>pushButton_deleteColors</tabstop>
  </tabstops>
  <resources/>
  <connections/>

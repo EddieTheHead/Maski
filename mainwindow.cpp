@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     makePredefinedMasks();
     connect(ui->comboBox_predefinieMasks,SIGNAL(currentIndexChanged(int)),this,SLOT(loadMaskFromCombobox(int)));
+    connect(ui->lineEdit_a1,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
 }
 
 MainWindow::~MainWindow()
@@ -181,13 +182,6 @@ void MainWindow::showResult()
     ui->label_FFT->setPixmap(QPixmap::fromImage(MaskedImage));
 }
 
-//chwilowo zbędne
-void MainWindow::on_pushButton_deleteColors_clicked()
-{
-    rgbToBW();
-    ui->label_Picture->setPixmap(QPixmap::fromImage(SourceImage));
-}
-
 void MainWindow::loadSourcePictureToMatrix()
 {
     for(int x = 0; x < SourceImage.width(); x++)
@@ -200,6 +194,7 @@ void MainWindow::loadSourcePictureToMatrix()
             // int->complex (double)
             in[y * OutWidth + x][0] = double(Gray);
             in[y * OutWidth + x][1] = 0;
+
 //            QColor color = SourceImage.pixel(x,y);
 //            double R = color.redF();
 //            double G = color.greenF();
@@ -214,17 +209,6 @@ void MainWindow::loadSourcePictureToMatrix()
 
 void MainWindow::loadMaskFromForm()
 {
-
-
-//    inMask[0*OutWidth+0][0] = ui->lineEdit_a1->text().toDouble();
-//    inMask[1*OutWidth+0][0] = ui->lineEdit_a2->text().toDouble();
-//    inMask[2*OutWidth+0][0] = ui->lineEdit_a3->text().toDouble();
-//    inMask[0*OutWidth+1][0] = ui->lineEdit_b1->text().toDouble();
-//    inMask[1*OutWidth+1][0] = ui->lineEdit_b2->text().toDouble();
-//    inMask[2*OutWidth+1][0] = ui->lineEdit_b3->text().toDouble();
-//    inMask[0*OutWidth+2][0] = ui->lineEdit_c1->text().toDouble();
-//    inMask[1*OutWidth+2][0] = ui->lineEdit_c2->text().toDouble();
-//    inMask[2*OutWidth+2][0] = ui->lineEdit_c3->text().toDouble();
 
 //       y          x      re
 //        \          \    /
@@ -365,4 +349,9 @@ void MainWindow::loadMaskFromCombobox(int index)
     ui->lineEdit_c1->setText(PredefinedMasks[index].find("c1").value());
     ui->lineEdit_c2->setText(PredefinedMasks[index].find("c2").value());
     ui->lineEdit_c3->setText(PredefinedMasks[index].find("c3").value());
+}
+
+void MainWindow::maskEditsChanged()
+{
+    ui->comboBox_predefinieMasks->setCurrentText(QStringLiteral("Własne"));
 }
