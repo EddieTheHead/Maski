@@ -13,6 +13,14 @@ MainWindow::MainWindow(QWidget *parent) :
     makePredefinedMasks();
     connect(ui->comboBox_predefinieMasks,SIGNAL(currentIndexChanged(int)),this,SLOT(loadMaskFromCombobox(int)));
     connect(ui->lineEdit_a1,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_a2,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_a3,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_b1,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_b2,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_b3,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_c1,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_c2,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
+    connect(ui->lineEdit_c3,SIGNAL(editingFinished()),this,SLOT(maskEditsChanged()));
 }
 
 MainWindow::~MainWindow()
